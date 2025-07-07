@@ -1,0 +1,196 @@
+* {
+  border-radius: 0;
+}
+
+header {
+  margin: 0;
+  min-width: 90rem;
+}
+
+body {
+  background-color: var(--sub-black-color);
+}
+
+#problem_container {
+  height: calc(100vh - 70.05px);
+}
+
+#problem_title_container {
+  padding: 1rem 2rem;
+  background-color: var(--sub-black-color);
+  border-bottom: 1px solid var(--sub-white-color);
+  min-width: 90rem;
+}
+
+#problem_title_container p {
+  font-size: 1.1rem;
+  color: var(--sub-white-color);
+}
+
+#problem_total_container {
+  width: 100%;
+  min-width: 90rem;
+  height: calc(100vh - 70.05px - 54.5px);
+  display: flex;
+  align-items: flex-start;
+}
+
+#problem_detail_container {
+  width: calc(100vw - 60rem);
+  min-width: 30rem;
+  height: calc(100vh - 70.05px - 54.5px);
+  border-right: 1px solid var(--sub-white-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+#problem_description_container,
+#problem_limit_container,
+#problem_io_example_container,
+#problem_io_example_description_container,
+#problem_caution_container,
+#test_code_container {
+  width: 100%;
+  min-width: 30rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: var(--sub-white-color);
+  border-bottom: 1px solid var(--sub-white-color);
+}
+
+#problem_description_container p:first-child,
+#problem_limit_container p:first-child,
+#problem_io_example_container p:first-child,
+#problem_io_example_description_container p:first-child,
+#problem_caution_container p:first-child,
+#test_code_container p:first-child {
+  margin-bottom: 1rem;
+}
+
+#problem_description_container p,
+#problem_limit_container p,
+#problem_io_example_container p,
+#problem_io_example_description_container p,
+#problem_caution_container p {
+  font-size: 1.1rem;
+}
+
+#problem_limit_container p,
+#problem_io_example_description_container p,
+#problem_caution_container p {
+  white-space: pre-line;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--sub-white-color);
+  padding: 8px;
+}
+
+#problem_solve_container {
+  width: 60rem;
+  height: 60vh;
+  background-color: var(--main-color2);
+}
+
+.CodeMirror,
+.cm-s-default {
+  height: 60vh !important;
+  border-bottom: 1px solid var(--sub-white-color);
+}
+
+.CodeMirror-scroll {
+  width: 60rem;
+  height: 60vh !important;
+  overflow: scroll;
+  background-color: var(--sub-black-color);
+  color: var(--sub-white-color);
+  caret-color: var(--sub-white-color);
+  margin: 0 !important;
+  padding: 0 !important;
+  resize: none;
+  width: 100%;
+  caret-color: red;
+}
+
+.cm-variable {
+  font-size: 1.2rem !important;
+}
+
+.CodeMirror-gutters,
+.CodeMirror-gutter,
+.CodeMirror-linenumbers {
+  border: none;
+  background-color: var(--main-color);
+}
+
+.CodeMirror-linenumber,
+.CodeMirror-gutter-elt {
+  color: var(--sub-white-color) !important;
+}
+
+#test_code_container {
+  height: calc(100vh - 77.83px - 665.33px - 52px - 50px);
+  overflow: scroll;
+  border-right: none;  
+}
+
+#code_btns_container {
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1rem;
+	border-bottom: 1px solid var(--sub-white-color);
+	height: 50px;
+	box-sizing: border-box;
+}
+
+/*key*/
+.cm-keyword,
+.cm-type,
+.cm-string,
+.cm-def,
+.cm-meta,
+.cm-number {
+  font-size: 1.2rem;
+}
+
+
+/* keywork */
+.cm-keyword {
+  color: var(--main-color) !important;
+}
+
+/* data type */
+.cm-type {
+  color : var(--main-color2) !important;
+}
+
+/* string value */
+.cm-string {
+  color: var(--positive-color) !important;
+}
+
+.cm-def {
+  color: var(--link-color) !important;
+}
+
+.cm-variable {
+  color: var(--sub-white-color) !important;
+}
+
+.cm-meta {
+	color: #DCEAA2 !important;
+}
+
+.CodeMirror-cursor {
+  border-left: 2px solid var(--sub-white-color) !important;
+}

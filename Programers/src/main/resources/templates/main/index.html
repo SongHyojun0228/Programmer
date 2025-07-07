@@ -1,0 +1,110 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+
+  <head>
+    <link rel="stylesheet" th:href="@{/css/main/index.css}" />
+  </head>
+
+  <div class="main" layout:fragment="content">
+      <div id="main_container">
+        <div id="main_problem_container">
+          <!--검색-->
+          <div action="find_problem" id="problem_search_form">
+            <div id="problem_search_form_input">
+              <input type="text" placeholder="풀고 싶은 문제 제목 검색" name="search_title" id="search_title"/>
+              <button id="search_btn">검색</button>
+            </div>
+          </div>
+
+          <!--결과-->
+          <div id="search_result_container">
+			<p id="count_of_problems" th:text="'문제 ' + ${paging.totalElements} + '개'">?개</p>
+            <div id="problems_container">
+              <div class="problem_items" id="problem_items_title">
+                <p>상태</p>
+                <p class="problem_title">제목</p>
+                <p>난이도</p>
+                <p>완료한 사람</p>
+                <!--<p>정답률</p>-->
+              </div>
+			  <!--<div th:each="problem : ${allProblems}">
+	          	<div class="problem_items">
+					<p th:text="${problemStatuses[problem.problemId]} ?: '미도전'"
+					   th:classappend="
+					      ${problemStatuses[problem.problemId]} == '성공' ? 'status_success' :
+					      (${problemStatuses[problem.problemId]} == '도전 중' ? 'status_progress' : 'status_not_started')
+					   ">
+					</p>
+	            	<a class="problem_link" th:href="@{|/problem/${problem.problemId}|}"><p class="problem_title" th:text="${problem.title}">가장 많이 받은 선물</p></a>
+	            	<p th:text="'Lv.' + ${problem.difficulty}">Lv.3</p>
+	            	<p>미완</p>
+	            	<p>미완</p>
+	             </div>
+			  </div>-->
+			  <div th:each="problem, loop : ${paging}">
+			  	<div class="problem_items">
+					<p th:text="${problemStatuses[problem.problemId]} ?: '미도전'"
+			  			th:classappend="${problemStatuses[problem.problemId]} == '성공' ? 'status_success' :
+			  			(${problemStatuses[problem.problemId]} == '도전 중' ? 'status_progress' : 'status_not_started')">
+					</p>
+			  	    <a class="problem_link" th:href="@{|/problem/${problem.problemId}|}"><p class="problem_title" th:text="${problem.title}">가장 많이 받은 선물</p></a>
+			  	    <p th:text="'Lv.' + ${problem.difficulty}">Lv.3</p>
+			  	    <p th:text="${problem.countOfUsersWhoHaveSolved} + '명'">미완</p>
+			  	    <!--<p>미완</p>-->
+			  	   </div>
+			  	</div>		  
+            </div>
+          </div>
+		  <div id="paging_container" th:if="${!paging.isEmpty()}">
+			<ul class="pagination justify-content-center">
+				<span><</span>
+				<li class="page_item" th:classappend="${paging.number - 5 &lt;= 0} ? 'disabled'">
+					<a class="page_link" th:href="@{|?page=${paging.number-5}|}">
+						<span>이전</span>
+					</a>
+				</li>
+				<li th:each="page : ${#numbers.sequence(0, paging.totalPages-1)}"
+				th:if="${page &gt;= paging.number - 5 and page &lt;= paging.number + 5}"
+				th:classappend="${page == paging.number} ? 'active'" class="page_item">
+					<a th:text="${page} + 1" class="page_link"
+					th:href="@{|?page=${page}|}"></a>
+				</li>
+				<li class="page_item" th:classappend="${paging.number + 5 &gt;= 0} ? 'disabled'">
+					<a class="page_link" th:href="@{|?page=${paging.number+5}|}">
+						<span>다음</span>
+					</a>
+				</li>
+				<span>></span>
+			</ul>
+		  </div>
+        </div>
+        <div id="main_side_profile_container">
+		  <div id="mypage_logout_container">
+	          <a th:href="@{/auth/mypage}" id="main_side_profile_email" th:text="${user.id}">유저 아이디(이메일)</a>
+			  <a th:href="@{/auth/logout}" id="logout_btn">로그아웃</a>
+		  </div>
+          <table id="main_side_profile_grade">
+            <div id="main_side_profile_grade_title">
+				<tr>
+              		<th>순위</th>
+              		<th>점수</th>
+              		<th>해결한 문제</th>
+			  	</tr>
+            </div>
+            <div id="main_side_profile_grade_info">
+				<tr>
+              		<td th:text="${userRank} + '위'">7,601위</td>
+		        	<td th:text="${user.score} + '점'">유저 점수</td>
+					<td th:text="${solvedProblems.size()} + '개'">351개</td>
+				</tr>
+            </div>
+          </table>
+        </div>
+      </div>
+	  
+	  <script th:src="@{/js/search_problem.js}"></script>
+
+    </div>
+</html>

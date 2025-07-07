@@ -1,0 +1,104 @@
+/*을지로체*/
+@font-face {
+  font-family: 'BMEULJIRO';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #d8634f;
+  --main-color2: #3A6B56;
+  --negative-color: #992B1B;
+  --positive-color: #68c7c1;
+  --link-color: #8c9ed9;
+  --sub-white-color: #f8f4ed;
+  --sub-black-color: #3B3B3B;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin: 0;
+  padding: 0;
+  font-family: "Intel", "BMEULJIRO";
+}
+
+body {
+  background-color: var(--sub-white-color);
+}
+
+main {
+  height: calc(100vh - 70.05px);
+}
+
+header {
+  width: 100%;
+  background-color: var(--main-color);
+  border-radius: 0;
+  margin-bottom: 4rem;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+header a {
+  color: var(--sub-white-color);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+header a:hover {
+  color: var(--main-color2);
+  text-decoration: none;
+}
+
+header img {
+  width: 5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+input,
+textarea,
+button {
+  border: 1px solid var(--sub-black-color);
+  color: var(--sub-black-color);
+  padding: 0.7rem;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+button {
+  padding: 0.5rem 0.7rem;
+}
+
+button:hover {
+  font-weight: 800;
+}
+
+input:active,
+textarea:active {
+  border: 1px solid var(--sub-black-color);
+}
+
+ul,
+li {
+	list-style: none;
+}

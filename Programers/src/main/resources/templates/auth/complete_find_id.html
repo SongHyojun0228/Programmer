@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+
+  <head>
+    <title layout:title="로그인">로그인</title>
+    <link rel="stylesheet" th:href="@{/css/auth/form.css}" />
+    <link rel="stylesheet" th:href="@{/css/auth/complete_find.css}" />
+  </head>
+
+  <div class="main" layout:fragment="content">
+      <div class="form_container">
+        <h1>프로그래머스</h1>
+        <div class="complete_find_container">
+          <p>아이디는 <span>thdgywns2300@gmail.com</span> 입니다.</p>
+        </div>
+        <div id="sub_site">
+          <a th:href="@{/auth/login}">로그인</a>
+          <span>|</span>
+          <a th:href="@{/auth/signup}">회원가입</a>
+          <span>|</span>
+          <a th:href="@{/auth/find/password}">비밀번호 찾기</a>
+        </div>
+      </div>
+  </div>
+</html>

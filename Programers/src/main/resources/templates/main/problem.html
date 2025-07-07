@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+
+  <head>
+    <title layout:title="메인화면">메인화면</title>
+    <link rel="stylesheet" th:href="@{/css/main/problem.css}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+  </head>
+
+  <div class="main" layout:fragment="content">
+      <div id="problem_container">
+        <div id="problem_title_container">
+          <p th:text="${problem.title}">옹알이(1)</p>
+        </div>
+        <div id="problem_total_container">
+          <div id="problem_detail_container">
+            <div id="problem_description_container">
+              <p>문제 설명</p>
+              <p id="problem_description" th:text="${problem.description}" style="white-space: pre-wrap;"></p>
+            </div>
+            <div id="problem_limit_container">
+              <p>제약 조건</p>
+              <p th:text=${problem.limit} style="white-space: pre-wrap;"></p>
+            </div>
+            <div id="problem_io_example_container">
+              <p>입출력 예시</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>입력</th>
+                    <th>출력</th>
+                  </tr>
+                </thead>
+				<tbody>
+					<tr th:each="pair : ${examplePairs}">
+						<td th:text="${pair.input}"></td>
+					    <td th:text="${pair.output}"></td>
+					</tr>
+				</tbody>
+              </table>
+            </div>
+            <div id="problem_io_example_description_container">
+              <p th:text="${problem.ioExampleDescription}"></p>
+            </div>
+            <div id="problem_caution_container">
+                <p>유의 사항</p>
+                <p th:text="${problem.caution}"></p>
+              </div>
+          </div>
+          <form th:action="@{/submit/code}" method="post" id="submitForm">
+			  <input type="hidden" name="problemId" th:value="${problem.problemId}" />
+	          <div id="problem_solve_container">
+	              <textarea name="code" id="code"> </textarea>
+	            <div id="test_code_container">
+	                <p>실행결과</p>
+	                <p id="submitResult">실행결과가 여기에 표시됩니다.</p>
+	            </div>
+				<div id="code_btns_container">
+					<button type="reset">모두 지우기</button>
+					<button type="button" id="submitBtn">제출</button>
+	          </div>
+		  </form>
+        </div>
+      </div>
+
+	  <script th:inline="javascript">
+	  	const returnType = /*[[${returnType}]]*/ "String";
+	  	const paramTypes = /*[[${paramTypes}]]*/ ["String", "String"];
+	  	const paramNames = /*[[${paramNames}]]*/ ["str1", "str2"];
+
+	  	const paramSignature = paramTypes.map((type, i) => `${type} ${paramNames[i]}`).join(", ");
+
+	  	window.starterCode = `public class Solution {
+	      public static ${returnType} solution( ${paramSignature} ) {
+	      }
+}`;
+	  </script>
+	  <script th:src="@{/js/problem_code_editor.js}"></script>
+	    </div>
+    
+</html>

@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+
+  <head>
+    <title layout:title="마이페이지">마이페이지</title>
+    <link rel="stylesheet" th:href="@{/css/auth/form.css}" />
+    <link rel="stylesheet" th:href="@{/css/auth/my_page.css}" />
+  </head>
+
+  <div class="main" layout:fragment="content">
+      <div id="my_page_container">
+        <div id="my_page_top_container">
+          <!--<img src="/auth/6098c221cb9dba63fcd3d201c83ca2f3.jpg" alt="" />-->
+          <div>
+            <p id="my_page_email" th:text="${user.id}">@유저 이메일</p>
+            <p>문제 풀이 활동 기록</p>
+          </div>
+        </div>
+
+        <div id="my_page_mid_container">
+          <div class="my_page_mid_items">
+            <p>푼 문제</p>
+            <p><span th:text=${solvedProblems.size()}>351</span> 개</p>
+          </div>
+          <div class="my_page_mid_items">
+            <p>실행 횟수</p>
+            <p><span th:text="${user.countOfCompile}">356</span> 번</p>
+          </div>
+          <div class="my_page_mid_items">
+            <p>점수</p>
+            <p><span th:text="${user.score}">2432</span>점</p>
+          </div>
+        </div>
+
+        <div id="my_page_bottom_container">
+          <div>
+			<p>활동기록</p>
+			<a class="solved_problem_title" th:each="solvedProblem, loop : ${pagedSolvedProblems}" th:text="${solvedProblem.problem.title}" th:href="@{|/problem/${solvedProblem.problem.problemId}|}">푼 문제 이름</a>
+			<div id="paging_container" th:if="${!pagedSolvedProblems.isEmpty()}">
+				<ul class="pagination justify-content-center">
+					<li class="page_item" th:classappend="${pagedSolvedProblems.number - 5 &lt;= 0} ? 'disabled'">
+						<a class="page_link" th:href="@{|?page=${pagedSolvedProblems.number-1}|}">
+			  				<span>이전</span>
+			  			</a>
+			  		</li>
+			  		<li th:each="page : ${#numbers.sequence(0, pagedSolvedProblems.totalPages-1)}"
+			  			th:if="${page &gt;= pagedSolvedProblems.number - 5 and page &lt;= pagedSolvedProblems.number + 5}"
+			  			th:classappend="${page == pagedSolvedProblems.number} ? 'active'" class="page_item">
+			  			<a th:text="${page} + 1" class="page_link"
+			  			th:href="@{|?page=${page}|}"></a>
+			  		</li>
+			  		<li class="page_item" th:classappend="${pagedSolvedProblems.number + 5 &gt;= 0} ? 'disabled'">
+			  			<a class="page_link" th:href="@{|?page=${pagedSolvedProblems.number+1}|}">
+			  				<span>다음</span>
+			  			</a>
+			  		</li>
+			  	</ul>
+	        </div>
+		  </div>
+      </div>
+    </div>
+</html>

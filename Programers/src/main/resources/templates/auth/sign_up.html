@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+	  
+<head>
+	<title layout:title="회원가입">회원가입</title>
+	<link rel="stylesheet" th:href="@{/css/auth/form.css}" />
+	<link rel="stylesheet" th:href="@{/css/auth/sign_up.css}" />
+	<link rel="stylesheet" th:href="@{/css/auth/error.css}" />
+</head>
+
+<div class="main" layout:fragment="content">
+	<div class="form_container">
+		<h1>프로그래머스</h1>
+        	<form th:action="@{/auth/signup}" method="post" th:object="${authCreateForm}">
+				<div th:replace="~{include/form_errors :: formErrorsFragment}"></div>
+	          	<input type="email" placeholder="아이디(이메일)" name="id" th:field="*{id}"/>
+	          	<input type="password" id="pw" placeholder="비밀번호" name="pw" th:field="*{pw}"/>
+	          	<input type="password" id="checked_pw" placeholder="비밀번호 재확인" name="checked_pw" th:field="*{checkedPw}"/>
+	          	<input type="text" id="name" placeholder="이름" name="name" th:field="*{name}"/>
+	          	<input type="tel" id="tel" placeholder="전화번호" name="tel" th:field="*{tel}"/>
+	          	<button>회원가입</button>
+        	</form>
+        <div id="sub_site">
+         	<a th:href="@{/auth/login}">로그인</a>
+        </div>
+	</div>
+</div>
+    
+</html>

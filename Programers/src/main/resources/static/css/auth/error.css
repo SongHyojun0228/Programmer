@@ -1,0 +1,10 @@
+.toggle_caution {
+	width: 20rem;
+	margin-bottom: 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	color: var(--main-color);
+	background-color: var(--sub-white-color);
+	padding: 1rem;
+}

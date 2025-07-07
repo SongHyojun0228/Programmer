@@ -1,0 +1,16 @@
+.complete_find_container {
+    background-color: var(--sub-white-color);
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.complete_find_container p {
+    color: var(--sub-black-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+.complete_find_container span {
+    color: var(--main-color);
+    font-weight: 900;
+}

@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{include/html_layout}"
+      lang="ko">
+
+  <head>
+    <title layout:title="비밀번호 찾기">비밀번호 찾기</title>
+    <link rel="stylesheet" th:href="@{/css/auth/form.css}" />
+    <link rel="stylesheet" th:href="@{/css/auth/login.css}" />
+  </head>
+
+  <div class="main" layout:fragment="content">
+      <div class="form_container">
+        <h1>프로그래머스</h1>
+        <form action="/회원가입" method="post">
+          <input type="email" placeholder="아이디(이메일)" />
+          <input type="text" placeholder="이름" />
+          <button>비밀번호 찾기</button>
+        </form>
+        <div id="sub_site">
+          <a th:href="@{/auth/login}">로그인</a>
+          <span>|</span>
+          <a th:href="@{/auth/signup}">회원가입</a>
+          <span>|</span>
+          <a th:href="@{/auth/find/id}">아이디 찾기</a>
+        </div>
+      </div>
+    </div>
+</html>

@@ -1,0 +1,74 @@
+header {
+  min-width: 30rem;
+}
+
+.form_container {
+  width: 30rem;
+  border: 1px solid var(--sub-black-color);
+  margin: 4rem auto;
+  background-color: var(--sub-black-color);
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: var(--sub-white-color);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+h1:hover {
+  color: var(--main-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+input::placeholder {
+  color: var(--sub-white-color);
+}
+
+input:focus {
+  border-color: var(--sub-white-color);
+}
+
+input {
+  border: 1px solid var(--sub-white-color);
+  width: 20rem;
+  background-color: var(--sub-black-color);
+  caret-color: var(--main-color2);
+}
+
+button {
+  margin: 6rem auto 2rem auto;
+  border: 1px solid var(--sub-white-color);
+  width: 20rem;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: var(--main-color2);
+  border-color: var(--main-color2);
+  color: var(--sub-white-color);
+}
+
+#sub_site {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#sub_site a,
+#sub_site span {
+  color: var(--sub-white-color);
+}
+
+#sub_site a:hover {
+  color: var(--link-color);
+}
