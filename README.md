@@ -22,11 +22,11 @@
 <br><br>
 
 ##기술 스택
-Frontend : HTML, CSS, JavaScript
-Template : Thymeleaf
-Backend : Spring Boot, Spring MVC, JPA
-Database : Oracle
-Build Tool : Gradle
+- Frontend : HTML, CSS, JavaScript
+- Template : Thymeleaf
+- Backend : Spring Boot, Spring MVC, JPA
+- Database : Oracle
+- Build Tool : Gradle
 
 <br><br>
 
