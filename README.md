@@ -35,14 +35,13 @@ Build Tool : Gradle
 |:-:|:-:|
 | <img width="1708" alt="로그인" src="https://github.com/user-attachments/assets/692ba8de-bd0f-438f-a49a-14e11acb464b" /> | <img width="1708" alt="마이페이지" src="https://github.com/user-attachments/assets/83e8e3f3-640e-4b45-82c4-4965b3abcf6c" /> |
 
-
 ---
 
 | 메인화면 | 메인화면 검색 |
 |:-:|:-:|
 | <img width="1708" alt="메인" src="https://github.com/user-attachments/assets/e4343f61-8168-4943-9b04-148a4d09ba10" /> | <img width="1708" alt="메인 검색" src="https://github.com/user-attachments/assets/d3205563-53fd-4314-aa3a-fe401dd6271b" /> |
 
---
+---
 
 | 문제 풀이 성공 | 문제 풀이 실페 |
 |:-:|:-:|
