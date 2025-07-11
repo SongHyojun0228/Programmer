@@ -1,7 +1,9 @@
 # 💻Programmer
 >👨🏻‍💻 사용자가 문제를 선택하여 Java 언어로 직접 코드를 작성, 제출 할 수 있는 플랫폼
 
-**Programmers**는사용자가 문제를 선택하여 Java 언어로 직접 코드를 작성, 제출 할 수 있는 플랫폼입니다.
+<br><br>
+
+## 선정 이유 
 
 <br><br>
 
@@ -27,6 +29,10 @@
 - Backend : Spring Boot, Spring MVC, JPA
 - Database : Oracle
 - Build Tool : Gradle
+
+<br><br>
+
+## 성장점
 
 <br><br>
 
