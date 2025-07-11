@@ -29,8 +29,8 @@
 - 유저 순위, 점수, 컴파일 횟수 표시
 
 ### 배포
-- AWS Lightsail ( Ubuntu )
-- oracle-xe-11.2.0-1.0.x86_64.rpm 
+- AWS Lightsail ( Ubuntu ) 
+- Oracle XE
 - http://15.165.162.229:2300/
 
 <br><br>
@@ -41,7 +41,7 @@
 - Backend : Spring Boot, Spring MVC, JPA
 - Database : Oracle
 - Build Tool : Gradle
-- Infra: AWS Lightsail (Ubuntu), Oracle XE, 수동 배포 (`java -jar`), 포트 설정 및 외부 접속 구성
+- Infra: AWS Lightsail (Ubuntu), Oracle XE, 포트 설정 및 외부 접속 구성
 
 <br><br>
 
