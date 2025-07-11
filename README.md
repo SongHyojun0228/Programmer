@@ -31,10 +31,15 @@
 - Backend : Spring Boot, Spring MVC, JPA
 - Database : Oracle
 - Build Tool : Gradle
+- Infra: AWS Lightsail (Ubuntu), Oracle XE, 수동 배포 (`java -jar`), 포트 설정 및 외부 접속 구성
 
 <br><br>
 
 ## 성장점
+### 기술적 성장
+- 프로젝트를 진행하며 Java와 Spring Boot에 대한 이해도가 크게 향상되었습니다.
+- JPA를 활용한 데이터베이스 처리, REST API 설계, 세션 기반 사용자 관리 등 실무에서 사용되는 기술들을 직접 구현해보며 기초를 탄탄히 다질 수 있었습니다.
+- AJAX를 이용한 검색 기능과 페이징 처리, Thymeleaf를 활용한 서버 사이드 렌더링을 경험하며 프론트엔드와 백엔드 간 통신 구조를 자연스럽게 익혔습니다.
 
 <br><br>
 
