@@ -3,9 +3,9 @@ package com.programmers.solution;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.programmers.auth.Auth;
@@ -25,10 +25,17 @@ public class UserProblemSolvingService {
 
 	// 🌕 유저 별 푼 문제 보기 ( 페이징 )
 	public Page<UserProblemSolving> getPagedSolvedProblemByUserId(Integer userId, int page) {
-		Pageable pageable = PageRequest.of(page, 10,
-				Sort.by("problem.difficulty").ascending().and(Sort.by("problem.problemId").ascending()));
+		int pageSize = 10;
+		int startRow = page * pageSize;
+		int endRow = startRow + pageSize;
 
-		return this.userProblemSolvingRepository.getPagedAllSolvedProblemsByUserId(userId, pageable);
+		List<UserProblemSolving> content = this.userProblemSolvingRepository.getSolvedProblemsByUserIdAndPage(userId,
+				startRow, endRow);
+
+		int total = this.userProblemSolvingRepository.countSolvedProblemsByUserId(userId);
+
+		Pageable pageable = PageRequest.of(page, pageSize);
+		return new PageImpl<>(content, pageable, total);
 	}
 
 	public List<UserProblemSolving> getSolvedProblemByUserId(Integer userId) {

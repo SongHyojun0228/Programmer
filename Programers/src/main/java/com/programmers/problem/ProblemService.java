@@ -3,9 +3,8 @@ package com.programmers.problem;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -22,10 +21,14 @@ public class ProblemService {
 	}
 
 	public Page<Problem> getAllPagingProblems(int page) {
-		Pageable pageable = PageRequest.of(page, 10,
-				Sort.by("difficulty").ascending().and(Sort.by("problemId").ascending()));
+		int pageSize = 10;
+		int startRow = page * pageSize;
+		int endRow = startRow + pageSize;
 
-		return this.problemRepository.findAll(pageable);
+		List<Problem> problems = this.problemRepository.findProblemsByPage(startRow, endRow);
+		int total = this.problemRepository.countAllProblems();
+
+		return new PageImpl<>(problems, PageRequest.of(page, pageSize), total);
 	}
 
 	Problem getProblem(Integer problemId) {
@@ -40,7 +43,14 @@ public class ProblemService {
 	}
 
 	public Page<Problem> getProblemsBySearchTitle(String keyword, int page) {
-		Pageable pageable = PageRequest.of(page, 10);
-		return problemRepository.findByTitleContainingIgnoreCaseOrderByDifficultyAscProblemIdAsc(keyword, pageable);
+		int size = 10;
+		int startRow = page * size;
+		int endRow = (page + 1) * size;
+
+		List<Problem> content = problemRepository.searchProblemsByTitleWithPagination(keyword, startRow, endRow);
+		int total = problemRepository.countProblemsByKeyword(keyword);
+
+		return new PageImpl<>(content, PageRequest.of(page, size), total);
 	}
+
 }

@@ -28,11 +28,11 @@ public class Problem {
 	@Column
 	private String limit;
 
-	@Column
-	private Integer timeLimit;
-
-	@Column
-	private Integer memoryLimit;
+//	@Column
+//	private Integer timeLimit;
+//
+//	@Column
+//	private Integer memoryLimit;
 
 	@Column
 	private String inputExample;
