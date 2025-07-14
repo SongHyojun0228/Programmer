@@ -40,6 +40,8 @@
 - **`AWS Lightsail (Ubuntu)`** 위에 배포, **Oracle XE** 기반의 문제 및 유저 데이터 저장
 - **URL: http://15.165.162.229:2300/**
 
+<br><br>
+
 ## **⚒️ 사용 언어 및 툴**
 - **Frontend : HTML, CSS, JavaScript**
 - **Template : Thymeleaf**
