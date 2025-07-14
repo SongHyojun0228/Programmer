@@ -1,87 +1,60 @@
-# 💻 Programmer
->👨🏻‍💻 사용자가 문제를 선택하여 Java 언어로 직접 코드를 작성, 제출 할 수 있는 플랫폼
-### 배포 사이트 경로
-> http://15.165.162.229:2300/
+# **💻 Programmer**
+> **👨🏻‍💻 사용자가 문제를 선택하여 Java 언어로 직접 코드를 작성, 제출 할 수 있는 플랫폼**
 
-### API 명세서
-> https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=73
+## 배포 사이트 경로
+> [**http://15.165.162.229:2300/**](http://15.165.162.229:2300/) 
 
-### Notion
-> https://spotless-seeker-00f.notion.site/16513ddc688b806aacb5f59a6befa64e?p=22913ddc688b8080b1e3de433e44756c&pm=c
+## API 명세서
+> [**https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=73**](https://www.notion.so/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=21)
 
 <br><br>
 
-## 선정 이유 
-- Java에 친숙해지고 공부하기 위해 많이 풀었던 프로그래머스의 컴파일러에 대한 궁금증이 시작이었습니다.
+## 🗳️ 선정 이유
+- Java에 친숙해지고 공부하기 위해 많이 풀었던 **프로그래머스의 컴파일러**에 대한 궁금증이 시작이었습니다.
 - 코드를 입력하고 제출했을 때 어떤 식으로 제가 쓴 코드가 실행되고 여러 테스트 채점이 되는 지 문제 풀이 플랫폼을 구현하여 이해하고자 했습니다.
 
 <br><br>
 
-## ⩤ 주요기능
-### **🔎 문제 풀이 목록 및 검색 기능**
-- **AJAX 기반 실시간 검색**
+## **⩤ 주요 기능**
+### **1. 🔎 문제 풀이 목록 및 검색 기능**
+- **`AJAX 기반 실시간 검색`**
     - 사용자가 입력한 문제 제목에 따라 페이지 전체 새로고침 없이 실시간 검색 결과 반환
-- **페이지네이션 처리**
+- **`페이지네이션 처리`**
 - **유저 맞춤형 정보 표시**:
     - 각 문제에 대해 해당 사용자의 풀이 상태 표시
     - 난이도 및 해결한 유저 수 함께 제공
 - **검색 결과도 페이징 적용**
 
-### **📑 문제 풀이 페이지**
-- **문제 설명, 입출력 예시, 제한사항, 함수 시그니처를 JSON 기반으로 파싱 후 시각화**
-- **사용자가 입력한 코드를 서버에 저장하고, Java 컴파일 및 실행을 통해 실시간 채점 수행**
+### **2. 📑 문제 풀이 페이지**
+- **문제 설명, 입출력 예시, 제한사항, 함수 시그니처를 `JSON` 기반으로 파싱 후 시각화**
+- **`사용자가 입력한 코드를 서버에 저장하고, Java 컴파일 및 실행을 통해 실시간 채점 수행`**
 - **각 테스트케이스 실행 시간(ms 단위)을 측정 및 출력**
-- **기대값과 실제 출력값을 비교하여 통과/실패 여부를 시각적으로 반환**
+- **`기대값과 실제 출력값을 비교`하여 통과/실패 여부를 시각적으로 반환**
 - **문제 해결 시 유저 점수 증가, 해결한 문제 리스트 및 순위에 반영**
 
-### **🙆🏻 회원 기능**
+### **3. 🙆🏻 회원 기능**
 - 유저 별 푼 문제 확인
 - 유저 순위, 점수, 컴파일 횟수 표시
 
-### **🌐 배포**
-- **AWS Lightsail (Ubuntu)** 위에 배포, Oracle XE 기반의 문제 및 유저 데이터 저장
+### **4. 🌐 배포**
+- **`AWS Lightsail (Ubuntu)`** 위에 배포, **Oracle XE** 기반의 문제 및 유저 데이터 저장
 - **URL: http://15.165.162.229:2300/**
 
-<br><br>
-
-## ⚙️ 기술 구성 및 흐름
-### 1. 문제 데이터 처리
-- 문제의 입출력 예시는 JSON 형태로 DB에 저장
-- ObjectMapper를 사용해 List<Map<String, Object>> 형태로 변환
-
-### 2. 사용자 코드 저장 및 Judge 클래스 생성
-- 제출된 Java 코드를 `.java` 파일로 저장
-- 동적으로 Judge.java 파일 생성하여 테스트케이스 입력값 기반으로 solution() 메서드를 호출
-
-### 3. 컴파일 & 실행
-- `javac`와 `java` 커맨드를 `ProcessBuilder`로 호출하여 컴파일 및 실행
-
-### 4. 결과 분석
-- 기대값과 실제값을 비교
-- 실패한 테스트에 대해 기대값/실제값 모두 표기
-
-### 5. 결과 반영
-- 모든 테스트 통과 시 문제 해결 처리 (userProblemSolvingService.addSolvedProblem)
-- 점수 및 사용자 순위 갱신 (authService.addScore)
-- 컴파일 횟수 증가
+## **⚒️ 사용 언어 및 툴**
+- **Frontend : HTML, CSS, JavaScript**
+- **Template : Thymeleaf**
+- **Backend : Spring Security, Spring Boot, Spring MVC, JPA**
+- **Database : Oracle**
+- **Build Tool : Gradle**
+- **Infra: AWS Lightsail (Ubuntu), Oracle XE, 포트 설정 및 외부 접속 구성**
 
 <br><br>
 
-## 기술 스택
-- Frontend : HTML, CSS, JavaScript
-- Template : Thymeleaf
-- Backend : Spring Boot, Spring MVC, JPA
-- Database : Oracle
-- Build Tool : Gradle
-- Infra: AWS Lightsail (Ubuntu), Oracle XE, 포트 설정 및 외부 접속 구성
-
-<br><br>
-
-## 성장점
-- **AWS Lightsail에 Ubuntu 환경을 구성**하고, Oracle 데이터베이스 설치 및 Spring Boot 애플리케이션을 직접 배포함으로써 클라우드 기반 서비스 운영 경험을 쌓을 수 있었습니다.
-- **AJAX**를 이용한 검색 기능과 페이징 처리, Thymeleaf를 활용한 서버 사이드 렌더링을 경험하며 프론트엔드와 백엔드 간 통신 구조를 자연스럽게 익혔습니다.
-- 사용자가 작성한 코드를 파일로 저장하고, Java 컴파일 및 실행하는 흐름을 직접 구현함으로써 서버에서의 동적 코드 실행, 에러 처리 등의 기능을 설계하고 경험할 수 있었습니다.
-- 프로젝트를 진행하며 **Java와 Spring Boot**에 대한 이해도가 높아졌습니다.
+## **📈 성장점**
+- **`AWS Lightsail에 Ubuntu 환경`을 구성**하고, Oracle 데이터베이스 설치 및 Spring Boot 애플리케이션을 직접 배포함으로써 클라우드 기반 서비스 운영 경험을 쌓을 수 있었습니다.
+- **`AJAX`를 이용한 검색 기능과 페이징 처리**, Thymeleaf를 활용한 서버 사이드 렌더링을 경험하며 프론트엔드와 백엔드 간 통신 구조를 자연스럽게 익혔습니다.
+- **사용자가 작성한 코드를 파일로 저장하고, Java 컴파일 및 실행하는 흐름을 직접 구현함으로써 서버에서의 동적 코드 실행, 에러 처리 등의 기능을 설계하고 경험할 수 있었습니다.**
+- 프로젝트를 진행하며 **Java와 Spring Boot**에 대한 이해도가 높아졌습니다.
 
 <br><br>
 
