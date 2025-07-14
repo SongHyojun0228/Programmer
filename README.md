@@ -5,7 +5,7 @@
 > [**http://15.165.162.229:2300/**](http://15.165.162.229) 
 
 ## API 명세서
-> [**https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=73**](https://www.notion.so/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=21)
+> [**https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=73**]([https://www.notion.so/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=21](https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7))
 
 <br><br>
 
