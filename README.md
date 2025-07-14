@@ -6,6 +6,9 @@
 ### API 명세서
 > https://spotless-seeker-00f.notion.site/Programmers-API-22d13ddc688b8058b0d6c8d3a4694bf7?pvs=73
 
+### Notion
+> https://spotless-seeker-00f.notion.site/16513ddc688b806aacb5f59a6befa64e?p=22913ddc688b8080b1e3de433e44756c&pm=c
+
 <br><br>
 
 ## 선정 이유 
