@@ -44,6 +44,34 @@
 
 <br><br>
 
+## ⚙️ 기술 구성 및 흐름
+### 1. 문제 데이터 처리
+- 문제의 입출력 예시는 JSON 형태로 DB에 저장
+- ObjectMapper를 사용해 List<Map<String, Object>> 형태로 변환
+- UI에서 "a = 1, b = 2" 식으로 사용자 친화적으로 가공
+
+### 2. 사용자 코드 저장 및 Judge 클래스 생성
+- 제출된 Java 코드를 /tmp/judge/에 .java 파일로 저장
+- 동적으로 Judge.java 파일 생성하여 테스트케이스 입력값 기반으로 solution() 메서드를 호출
+- Object result = Solution.solution("hello", "world");
+- System.out.println(result + "::" + timeMs + "ms");
+
+### 3. 컴파일 & 실행
+- javac와 java 커맨드를 ProcessBuilder로 호출하여 컴파일 및 실행
+- 실행 결과를 표준 출력에서 수집
+
+### 4. 결과 분석
+- 기대값과 실제값을 비교
+- 배열은 Arrays.toString()을 이용해 문자열 변환 후 비교
+- 실패한 테스트에 대해 기대값/실제값 모두 표기
+
+### 5. 결과 반영
+- 모든 테스트 통과 시 문제 해결 처리 (userProblemSolvingService.addSolvedProblem)
+- 점수 및 사용자 순위 갱신 (authService.addScore)
+- 컴파일 횟수 증가
+
+<br><br>
+
 ## 기술 스택
 - Frontend : HTML, CSS, JavaScript
 - Template : Thymeleaf
