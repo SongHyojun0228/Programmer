@@ -17,7 +17,6 @@
 
 <br><br>
 
-@닉네임 멘션 시 실시간 알림 전송
 ## ⩤ 주요기능
 ### **🔎 문제 풀이 목록 및 검색 기능**
 - **AJAX 기반 실시간 검색**
@@ -49,21 +48,16 @@
 ### 1. 문제 데이터 처리
 - 문제의 입출력 예시는 JSON 형태로 DB에 저장
 - ObjectMapper를 사용해 List<Map<String, Object>> 형태로 변환
-- UI에서 "a = 1, b = 2" 식으로 사용자 친화적으로 가공
 
 ### 2. 사용자 코드 저장 및 Judge 클래스 생성
-- 제출된 Java 코드를 /tmp/judge/에 .java 파일로 저장
+- 제출된 Java 코드를 `.java` 파일로 저장
 - 동적으로 Judge.java 파일 생성하여 테스트케이스 입력값 기반으로 solution() 메서드를 호출
-- Object result = Solution.solution("hello", "world");
-- System.out.println(result + "::" + timeMs + "ms");
 
 ### 3. 컴파일 & 실행
-- javac와 java 커맨드를 ProcessBuilder로 호출하여 컴파일 및 실행
-- 실행 결과를 표준 출력에서 수집
+- `javac`와 `java` 커맨드를 `ProcessBuilder`로 호출하여 컴파일 및 실행
 
 ### 4. 결과 분석
 - 기대값과 실제값을 비교
-- 배열은 Arrays.toString()을 이용해 문자열 변환 후 비교
 - 실패한 테스트에 대해 기대값/실제값 모두 표기
 
 ### 5. 결과 반영
